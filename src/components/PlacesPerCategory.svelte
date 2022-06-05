@@ -48,7 +48,7 @@
     }
 </script>
 
-<h1 class="title is-4">PlacesPerCategory</h1>
+<h1 class="title is-4">Places Per Category</h1>
 {#key unique}
     <Chart data={placesPerCategory} type={chartType}/>
 {/key}

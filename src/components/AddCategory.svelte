@@ -22,8 +22,8 @@
 
 <form on:submit|preventDefault={addCategory}>
     <div class="field">
-        <label class="label">Category Name</label> <input bind:value={categoryName} class="input" type="text"
-                                                          placeholder="Enter category name">
+        <label class="label">Category Name</label>
+        <input bind:value={categoryName} required class="input" type="text" placeholder="Enter category name">
     </div>
     <button class="button is-link">Add Category</button>
 </form>

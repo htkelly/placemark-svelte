@@ -22,7 +22,6 @@
                 "longitude": longitude
             },
         };
-        console.log(place);
         await placemarkService.addPlace(categoryId, place);
         dispatch("update");
         placeName = "";
@@ -37,16 +36,16 @@
     <div class="field is-horizontal">
         <div class="field-body">
             <div class="field">
-                <input bind:value={placeName} class="input" type="text" placeholder="Enter Name">
+                <input bind:value={placeName} required class="input" type="text" placeholder="Enter Name">
             </div>
             <div class="field">
-                <input bind:value={description} class="input" type="text" placeholder="Enter description">
+                <input bind:value={description} required class="input" type="text" placeholder="Enter description">
             </div>
             <div class="field">
-                <input bind:value={latitude} class="input" type="number" min="-90" max="90" placeholder="Enter latitude">
+                <input bind:value={latitude} required class="input" type="number" min="-90" max="90" placeholder="Enter latitude">
             </div>
             <div class="field">
-                <input bind:value={longitude} class="input" type="number" min="-180" max="180" placeholder="Enter longitude">
+                <input bind:value={longitude} required class="input" type="number" min="-180" max="180" placeholder="Enter longitude">
             </div>
         </div>
     </div>
