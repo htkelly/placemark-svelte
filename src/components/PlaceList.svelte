@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a onclick="" class="card-footer-item">
+                        <a href="/#/place/{place._id}" class="card-footer-item">
                             <i class="fas fa-image"></i>
                         </a>
                         <a href="" class="card-footer-item">

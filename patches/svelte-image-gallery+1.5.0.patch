@@ -1,0 +1,30 @@
+diff --git a/node_modules/svelte-image-gallery/Gallery.svelte b/node_modules/svelte-image-gallery/Gallery.svelte
+index 98946ac..762b4ed 100644
+--- a/node_modules/svelte-image-gallery/Gallery.svelte
++++ b/node_modules/svelte-image-gallery/Gallery.svelte
+@@ -21,7 +21,7 @@
+     onMount(Draw);
+ 
+     function HandleClick(e) {
+-        dispatch("click", { src: e.target.src, alt: e.target.alt, loading: e.target.loading, class: e.target.className });
++        dispatch("click", { id: e.target.id, src: e.target.src, alt: e.target.alt, loading: e.target.loading, class: e.target.className  });
+     }
+ 
+     async function Draw() {
+@@ -41,7 +41,7 @@
+             const idx = i % columnCount;
+             columns[idx] = [
+                 ...(columns[idx] || []),
+-                { src: images[i].src, alt: images[i].alt, class: images[i].className },
++                { id: images[i].id, src: images[i].src, alt: images[i].alt, class: images[i].className },
+             ];
+         }
+     }
+@@ -62,6 +62,7 @@
+             <div class="column">
+                 {#each column as img}
+                     <img
++                        id={img.id}
+                         src={img.src}
+                         alt={img.alt}
+                         on:click={HandleClick}
