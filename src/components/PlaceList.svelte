@@ -1,7 +1,16 @@
 <script>
     import placeholder from "../assets/placeholder.jpg";
+    import {createEventDispatcher, getContext} from "svelte";
 
     export let placeList;
+
+    const placemarkService = getContext("PlacemarkService");
+    const dispatch = createEventDispatcher();
+
+    async function deletePlace(placeId) {
+        await placemarkService.deletePlace(placeId);
+        dispatch("update");
+    }
 </script>
 <div class="container">
     <div class="columns is-multiline">
@@ -31,10 +40,10 @@
                         </div>
                     </div>
                     <footer class="card-footer">
-                        <a onclick="" class="card-footer-item">
+                        <a href="/#/place/{place._id}" class="card-footer-item">
                             <i class="fas fa-image"></i>
                         </a>
-                        <a href="" class="card-footer-item">
+                        <a href="" on:click|preventDefault={deletePlace(place._id)} class="card-footer-item">
                             <i class="fas fa-trash"></i>
                         </a>
                     </footer>

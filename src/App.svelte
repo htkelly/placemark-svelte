@@ -10,6 +10,7 @@
     import Map from "./pages/Map.svelte";
     import Charts from "./pages/Charts.svelte";
     import Router from "svelte-spa-router";
+    import ImageGallery from "./pages/ImageGallery.svelte";
 
     setContext("PlacemarkService", new PlacemarkService("http://localhost:4000"));
 
@@ -19,6 +20,7 @@
         "/signup": Signup,
         "/dashboard": Dashboard,
         "/category/:id": Category,
+        "/place/:id": ImageGallery,
         "/map": Map,
         "/charts": Charts,
         "/logout": Main

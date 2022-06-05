@@ -30,5 +30,5 @@
     </div>
 </div>
 
-<PlaceList placeList={placeList}/>
+<PlaceList placeList={placeList} on:update={updatePlaces}/>
 <AddPlace categoryId={params.id} on:update={updatePlaces}/>
