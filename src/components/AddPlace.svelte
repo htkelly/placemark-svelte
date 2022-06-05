@@ -22,7 +22,6 @@
                 "longitude": longitude
             },
         };
-        console.log(place);
         await placemarkService.addPlace(categoryId, place);
         dispatch("update");
         placeName = "";
