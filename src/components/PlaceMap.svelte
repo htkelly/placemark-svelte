@@ -18,12 +18,19 @@
         const allCategories = await placemarkService.getAllCategories();
         const categoryList = allCategories.filter(category => category.userid === storedUser.userId);
         const allPlaces = await placemarkService.getAllPlaces();
+        const firstCategory = categoryList[0];
+        const firstPlace = allPlaces.filter(place => place.categoryid === firstCategory._id)[0];
+        if (firstPlace) {
+            mapConfig.location.lat = firstPlace.location.latitude;
+            mapConfig.location.lng = firstPlace.location.longitude;
+        }
         const map = new LeafletMap("placemark-map", mapConfig);
         categoryList.forEach(category => {
             const categoryPlaces = allPlaces.filter(place => place.categoryid === category._id);
             map.addLayerGroup(category.name);
             categoryPlaces.forEach(place => {
-                map.addMarker({lat: place.location.latitude, lng: place.location.longitude}, place.name, category.name);
+                const popUpText = `It's ${place.temperature} °C at ${place.name} and the weather is ${place.weatherDescription}`
+                map.addMarker({lat: place.location.latitude, lng: place.location.longitude}, popUpText, category.name);
             });
         });
         map.showZoomControl();
