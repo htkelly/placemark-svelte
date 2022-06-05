@@ -15,7 +15,7 @@
         if (success) {
             push("/");
         } else {
-            errorMessage = "Error Trying to sign up";
+            errorMessage = "Error Trying to sign up. Did you input valid information?";
         }
     }
 </script>
@@ -25,23 +25,23 @@
         <div class="field-body">
             <div class="field">
                 <label for="firstname" class="label">First Name</label>
-                <input bind:value={firstName} id="firstname" class="input" type="text" placeholder="Enter first name"
+                <input bind:value={firstName} required id="firstname" class="input" type="text" placeholder="Enter first name"
                        name="firstName">
             </div>
             <div class="field">
                 <label for="lastname" class="label">Last Name </label>
-                <input bind:value={lastName} id="lastname" class="input" type="text" placeholder="Enter last name"
+                <input bind:value={lastName} required id="lastname" class="input" type="text" placeholder="Enter last name"
                        name="lastName">
             </div>
         </div>
     </div>
     <div class="field">
         <label for="email" class="label">Email</label>
-        <input bind:value={email} id="email" class="input" type="text" placeholder="Enter email" name="email">
+        <input bind:value={email} required id="email" class="input" type="text" placeholder="Enter email" name="email">
     </div>
     <div class="field">
         <label for="password" class="label">Password</label>
-        <input bind:value={password} id="password" class="input" type="password" placeholder="Enter Password"
+        <input bind:value={password} required id="password" class="input" type="password" placeholder="Enter Password"
                name="password">
     </div>
     <div class="field is-grouped">

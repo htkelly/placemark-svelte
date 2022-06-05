@@ -23,11 +23,11 @@
 <form on:submit|preventDefault={login}>
     <div class="field">
         <label class="label" for="email">Email</label>
-        <input bind:value={email} class="input" id="email" name="email" placeholder="Enter email" type="text">
+        <input bind:value={email} required class="input" id="email" name="email" placeholder="Enter email" type="text">
     </div>
     <div class="field">
         <label class="label" for="password">Password</label>
-        <input bind:value={password} class="input" id="password" name="password" placeholder="Enter Password"
+        <input bind:value={password} required class="input" id="password" name="password" placeholder="Enter Password"
                type="password">
     </div>
     <div class="field is-grouped">
