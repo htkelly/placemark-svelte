@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
@@ -20,6 +21,7 @@
     "axios": "^0.27.2",
     "jsonwebtoken-esm": "^1.0.3",
     "leaflet": "^1.8.0",
+    "patch-package": "^6.4.7",
     "svelte-frappe-charts": "^1.9.2",
     "svelte-spa-router": "^3.2.0"
   }
