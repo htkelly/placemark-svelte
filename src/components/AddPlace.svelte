@@ -43,10 +43,10 @@
                 <input bind:value={description} class="input" type="text" placeholder="Enter description">
             </div>
             <div class="field">
-                <input bind:value={latitude} class="input" type="text" placeholder="Enter latitude">
+                <input bind:value={latitude} class="input" type="number" min="-90" max="90" placeholder="Enter latitude">
             </div>
             <div class="field">
-                <input bind:value={longitude} class="input" type="text" placeholder="Enter longitude">
+                <input bind:value={longitude} class="input" type="number" min="-180" max="180" placeholder="Enter longitude">
             </div>
         </div>
     </div>

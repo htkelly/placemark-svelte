@@ -87,6 +87,11 @@ export class PlacemarkService {
         return response.data;
     }
 
+    async deletePlace(place) {
+        const response = await axios.delete(`${this.baseUrl}/api/places/${place}`);
+        return response.data;
+    }
+
     async addImage(place, formData) {
         const response = await axios.post(`${this.baseUrl}/api/places/${place}/images`, formData);
         return response.data
