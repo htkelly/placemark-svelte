@@ -18,10 +18,16 @@
     async function drawCategoryMap() {
         const allPlaces = await placemarkService.getAllPlaces();
         const categoryPlaces = allPlaces.filter(place => place.categoryid === categoryId);
+        const firstPlace = categoryPlaces[0];
+        if (firstPlace){
+            mapConfig.location.lat = firstPlace.location.latitude;
+            mapConfig.location.lng = firstPlace.location.longitude;
+        }
         const map = new LeafletMap(mapName, mapConfig);
         map.addLayerGroup(categoryName);
         categoryPlaces.forEach(place => {
-            map.addMarker({lat: place.location.latitude, lng: place.location.longitude}, place.name, categoryName);
+            const popUpText = `It's ${place.temperature} °C at ${place.name} and the weather is ${place.weatherDescription}`
+            map.addMarker({lat: place.location.latitude, lng: place.location.longitude}, popUpText, categoryName);
         });
         map.showZoomControl();
         map.showLayerControl();
